@@ -33,7 +33,7 @@ module.exports = function (app) {
                     var rnum = Math.floor(Math.random() * chars.length);
                     salt += chars.substring(rnum, rnum + 1);
                 }
-                db.query("INSERT INTO auth values(?,?,?,?)", [post.id, sha(post.password + salt),post.email,salt], function (err) {
+                db.query("INSERT INTO auth_local values(?,?,?,?)", [post.id, sha(post.password + salt),post.email,salt], function (err) {
                     request.login(post, function (err) {
                         request.session.save(function () {
                             return response.redirect(`/`);
@@ -48,14 +48,6 @@ module.exports = function (app) {
         request.logout();
         response.redirect(`/`);
     });
-    router.get('/facebook',passport.authenticate('facebook',{
-        authType: 'rerequest', scope: ['public_profile', 'email']
-    }))
-    
-    router.get('/facebook/callback',passport.authenticate('facebook',{
-        successRedirect : '/',
-        failureRedirect : '/login'
-    }))
     router.get('/kakao', passport.authenticate('kakao'));
     router.get('/kakao/callback', passport.authenticate('kakao',{
         successRedirect : '/',
