@@ -74,8 +74,8 @@ app.post('/problem', function (request, response) {
     //         if (machine_res) { // 파이썬의 대답이 있을경우 client에게 그 답을 보내줌
     //             response.send({answer:machine_body.answer});
     //         }
-        // });
-    response.send({answer:"333"});
+    //     });
+    response.send({answer:`${whatever}`});
 
 });
-app.listen(3000);
+app.listen(80);
