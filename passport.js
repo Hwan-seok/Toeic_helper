@@ -1,6 +1,7 @@
 const sha = require('sha256');
 const db = require('./db.js');
-var session = require('express-session')
+var session = require('express-session');
+const kakao = require('./kakao_option.js');
 
 var MySQLStore = require('express-mysql-session')(session);
 module.exports = function (app) {
@@ -68,12 +69,9 @@ module.exports = function (app) {
         return done(null, user[0]);
       })
     }));
-    passport.use(new KakaoStrategy({
-      clientID : "18360a7aeed73f35e1e7d1f2c7b645d3",
-     // clientSecret: 'Client_Secret',
-      callbackURL : "http://1.201.138.251/auth/kakao/callback",
-      passReqToCallback: true
-    },
+    passport.use(new KakaoStrategy(
+      kakao.option
+    ,
     function(request,accessToken, refreshToken, profile, done){
       // 사용자의 정보는 profile에 들어있다.
         db.query('SELECT id FROM auth_kakao WHERE id = ?', profile.id, function (err, result) {
