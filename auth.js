@@ -23,7 +23,7 @@ module.exports = function (app) {
         var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz!@#$%^&*()";
         var string_length = 15;
         var salt = '';
-        db.query('SELECT id FROM auth WHERE id=?', post.id, function (err, result) { 
+        db.query('SELECT id FROM auth_local WHERE id=?', post.id, function (err, result) { 
             if (result[0]){
             console.log(result[0]);
                 return response.redirect('/auth/register');// 이미 존재하는 아이디이면 다시 팅김
