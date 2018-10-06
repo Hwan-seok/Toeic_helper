@@ -68,31 +68,6 @@ module.exports = function (app) {
         return done(null, user[0]);
       })
     }));
-  passport.use(new facebookStrategy({
-      clientID: '836055069851841',
-      clientSecret: '666e44aaa36a42ad4e041ec1e94172af',
-      callbackURL: "http://localhost:3000/auth/facebook/callback",
-      passReqToCallback: true,
-      //profileFields: ['id', 'emails', 'name']
-    },
-    function (accessToken, refreshToken, profile, done) {
-      console.log('FacebookStrategy', profile);
-      db.query('SELECT id FROM auth_facebook WHERE id = ?', profile.id, function (err, result) {
-        if (result[0]) {
-          console.log("login with facebook", profile);
-          return done(err, profile);9
-        } // 회원 정보가 있으면 로그인
-        db.query('INSERT INTO auth_facebook (id) VALUES (profile.id)', function (err, result) {
-          console.log("register with facebook", result);
-          request.login(profile, function (err) {
-            request.session.save(function () {
-              return done(null, profile); // 새로운 회원 생성 후 로그인
-            })
-          })
-        });
-      });
-        
-    }));
     passport.use(new KakaoStrategy({
       clientID : "18360a7aeed73f35e1e7d1f2c7b645d3",
      // clientSecret: 'Client_Secret',
