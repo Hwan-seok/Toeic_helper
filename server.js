@@ -20,7 +20,6 @@ app.get('/', function (request, response) {
     <a href="/auth/login">login</a>
     <a href="/auth/register">register</a>
     <a href="/auth/logout">logout</a>
-    <a href = "/auth/facebook">log-in with Facebook</a>
     <a href="/auth/kakao">
     <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
     </a>

@@ -15,7 +15,7 @@ module.exports = function (app) {
     router.post('/login',
         passport.authenticate('local', {
             successRedirect: '/',
-            failureRedirect: '/login'
+            failureRedirect: '/auth/login'
         })
     );
     router.post('/register', function (request, response) { //name= {id , password} 으로 받음 
