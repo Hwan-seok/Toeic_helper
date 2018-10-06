@@ -32,7 +32,7 @@ module.exports = function (app) {
     done(null, user.id);
   });
   passport.deserializeUser(function (id, done) { //done에서 2번째 인자로 request.user라는 인자 전달해줌 
-     db.query('SELECT * FROM auth WHERE id = ?', [id], function (err, user) {
+     db.query('SELECT * FROM auth_local WHERE id = ?', [id], function (err, user) {
        if (user[0] === undefined) {
         db.query('SELECT * FROM auth_kakao WHERE id = ?', [id], function (err, user) {
           return done(err, user[0]) //카카오 가져오기
@@ -50,7 +50,7 @@ module.exports = function (app) {
       passReqToCallback: false
     },
     function (id, password, done) {
-      db.query('SELECT * FROM auth WHERE id = ?', [id], function (err, user) {
+      db.query('SELECT * FROM auth_local WHERE id = ?', [id], function (err, user) {
 
         if (user[0] === undefined) {
           console.log('Nonexistent id.');
@@ -71,7 +71,7 @@ module.exports = function (app) {
     passport.use(new KakaoStrategy({
       clientID : "18360a7aeed73f35e1e7d1f2c7b645d3",
      // clientSecret: 'Client_Secret',
-      callbackURL : "http://localhost:3000/auth/kakao/callback",
+      callbackURL : "http://1.201.138.251/auth/kakao/callback",
       passReqToCallback: true
     },
     function(request,accessToken, refreshToken, profile, done){
