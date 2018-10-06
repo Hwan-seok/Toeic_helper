@@ -10,7 +10,7 @@ module.exports = function (app) {
     port: 3306,
     user: 'root',
     password: '880918',
-    database: 'hello'
+    database: 'toeic_solver'
   };
   var sessionStore = new MySQLStore(options);
   app.use(session({
