@@ -20,7 +20,10 @@ module.exports = function (app) {
     );
     router.post('/register', function (request, response) { //name= {id , password} 으로 받음 
         const post = request.body;
-        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz!@#$%^&*()";
+	console.log(post);
+        console.log(post.id);
+	console.log(post.password);
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz!@#$%^&*()";
         var string_length = 15;
         var salt = '';
         db.query('SELECT id FROM auth_local WHERE id=?', post.id, function (err, result) { 
