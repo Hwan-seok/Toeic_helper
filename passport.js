@@ -70,7 +70,7 @@ module.exports = function (app) {
       })
     }));
     passport.use(new KakaoStrategy(
-      kakao.option
+      kakao.options
     ,
     function(request,accessToken, refreshToken, profile, done){
       // 사용자의 정보는 profile에 들어있다.
