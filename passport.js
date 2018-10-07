@@ -1,7 +1,7 @@
 const sha = require('sha256');
 const db = require('./db.js');
 var session = require('express-session');
-const kakao = require('./kakao_option.js');
+const KakaoStrategy_options = require('./kakao_option.js');
 
 var MySQLStore = require('express-mysql-session')(session);
 module.exports = function (app) {
@@ -11,7 +11,7 @@ module.exports = function (app) {
     port: 3306,
     user: 'root',
     password: '880918',
-    database: 'hello'
+    database: 'toeic_solver'
   };
   var sessionStore = new MySQLStore(options);
   app.use(session({
@@ -33,7 +33,7 @@ module.exports = function (app) {
     done(null, user.id);
   });
   passport.deserializeUser(function (id, done) { //done에서 2번째 인자로 request.user라는 인자 전달해줌 
-     db.query('SELECT * FROM auth_local WHERE id = ?', [id], function (err, user) {
+        db.query('SELECT * FROM auth_local WHERE id = ?', [id], function (err, user) {
        if (user[0] === undefined) {
         db.query('SELECT * FROM auth_kakao WHERE id = ?', [id], function (err, user) {
           return done(err, user[0]) //카카오 가져오기
@@ -70,7 +70,7 @@ module.exports = function (app) {
       })
     }));
     passport.use(new KakaoStrategy(
-      kakao.option
+      KakaoStrategy_options
     ,
     function(request,accessToken, refreshToken, profile, done){
       // 사용자의 정보는 profile에 들어있다.
