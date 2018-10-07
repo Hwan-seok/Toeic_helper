@@ -48,13 +48,19 @@ module.exports = function (app) {
                                 SERVER_RESPONSE: 1,
                                 SERVER_MESSAGE: "Register SUCESS"
                             });
-                        });}); });}});});
+                        });
+                    });
+                });
+            }
+        });
+    });
     router.get('/logout', function (request, response) {
         request.logout();
         response.redirect(`/`);
     });
     router.get('/kakao', passport.authenticate('kakao'));
-    router.get('/kakao/callback', passport.authenticate('kakao', function (request, response) {
+    router.get('/kakao/callback', passport.authenticate('kakao'), function (request, response) {
+        console.log(request);
         if (!request.user) {
             console.log("kakao_Wrong credentials");
             return response.status(400).json({
@@ -68,6 +74,6 @@ module.exports = function (app) {
                 SERVER_MESSAGE: "kakao_Logged in!"
             });
         }
-    }));
+    });
     return router;
 };
