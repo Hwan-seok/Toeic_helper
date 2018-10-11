@@ -10,7 +10,9 @@ const requesting = require('request');
 const auth = require('./auth.js')(app); //  authentication routing
 app.use('/auth', auth);
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json())
 app.use(helmet());
 
@@ -68,14 +70,28 @@ app.post('/problem', function (request, response) {
     //         if (err) throw err;
     //         if (machine_res) { // 파이썬의 대답이 있을경우 client에게 그 답을 보내줌
 
-    //             db.query(`INSERT INTO data (question,option_1,option_2,option_3,option_4,answer) VALUES (?,?,?,?,?,?)`, [question, option[0], option[1], option[2], option[3],machine_body.answer], function (err, result) {
+    //             db.query(`INSERT INTO dataset (question,option_1,option_2,option_3,option_4,answer) VALUES (?,?,?,?,?,?)`, [question, option[0], option[1], option[2], option[3],machine_body.answer], function (err, result) {
     //                 if (err) throw err;
     //                 console.log(result);
     //             });
     //             response.send( { answer: machine_body.answer } );
     //         }
     //     });
-    response.send( {answer:"lala"});
+    return response.send({
+        answer: "lala"
+    });
 });
-
+app.get('/problem/daily', function (request, response) {
+    db.query(`SELECT * FROM dataset order by rand() limit 1`, function (err, problem) {
+        return response.json({
+            question: problem[0].question,
+            option: [problem[0].option_1,
+                problem[0].option_2,
+                problem[0].option_3,
+                problem[0].option_4
+            ],
+            answer: problem[0].answer
+        });
+    });
+})
 app.listen(80);
