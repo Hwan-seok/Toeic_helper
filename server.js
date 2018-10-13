@@ -50,8 +50,6 @@ app.get('/auth/register', function (request, response) {
 app.post('/problem', function (request, response) {
 
     const post = request.body;
-    console.log(request.body);
-
     const question = post.question;
     let option = new Array(4);
     let i;
@@ -61,7 +59,7 @@ app.post('/problem', function (request, response) {
     //   mysql에 client 부터 받은 데이터 삽입
     //  파이썬에게 데이터 request하고 callback 함수 실행
     requesting.post({
-        url: 'http://localhost:3000/testing',
+        url: 'http://1.201.138.251:80/testing',
         body: {
             question: question,
             option: [option[0], option[1], option[2], option[3]]
@@ -71,8 +69,8 @@ app.post('/problem', function (request, response) {
         function (err, machine_res, machine_body) {
             if (err) throw err;
             if (machine_res) { // 파이썬의 대답이 있을경우 client에게 그 답을 보내줌
-
-                db.query(`INSERT INTO dataset (question,option_1,option_2,option_3,option_4,answer) VALUES (?,?,?,?,?,?)`, [question, option[0], option[1], option[2], option[3],machine_body.answer], function (err, result) {
+                const sql = `INSERT INTO dataset (question,option_1,option_2,option_3,option_4,answer) VALUES (?,?,?,?,?,?)`;
+                db.query(sql, [question, option[0], option[1], option[2], option[3],machine_body.answer], function (err, result) {
                     if (err) throw err;
                     console.log("dataset successfully inserted into DB")
                 });
@@ -81,7 +79,8 @@ app.post('/problem', function (request, response) {
         });
 });
 app.get('/problem/daily', function (request, response) {
-    db.query(`SELECT * FROM dataset order by rand() limit 1`, function (err, problem) {
+    const sql = `SELECT * FROM dataset order by rand() limit 1`;
+    db.query(sql, function (err, problem) {
         return response.json({
             question: problem[0].question,
             option: [problem[0].option_1,
@@ -91,6 +90,13 @@ app.get('/problem/daily', function (request, response) {
             ],
             answer: problem[0].answer
         });
+    });
+})
+app.get('/problem/mine/:user_id',function(request,response){
+    const sql=`SELECT question,option_1,option_2,option_3,option_4,answer FROM dataset where user_id=?`;
+    db.query(sql,[request.params.user_id],function(err,results){
+        if(err)throw err;
+        return response.json(results);  // user_id 와 일치하는 문제 선택해 전송
     });
 })
 app.post('/testing',function(request,response){
