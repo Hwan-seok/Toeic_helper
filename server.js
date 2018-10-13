@@ -61,7 +61,7 @@ app.post('/problem', function (request, response) {
     //   mysql에 client 부터 받은 데이터 삽입
     //  파이썬에게 데이터 request하고 callback 함수 실행
     requesting.post({
-        url: 'http://localhost:3000/testing',
+        url: 'http://1.201.138.251:80/testing',
         body: {
             question: question,
             option: [option[0], option[1], option[2], option[3]]
