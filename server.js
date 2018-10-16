@@ -51,6 +51,7 @@ app.post('/problem', function (request, response) {
 
     const post = request.body;
     const question = post.question;
+    const user_id = post.user_id;
     let option = new Array(4);
     let i;
     for (i = 0; i < 4; i++) {
@@ -69,8 +70,8 @@ app.post('/problem', function (request, response) {
         function (err, machine_res, machine_body) {
             if (err) throw err;
             if (machine_res) { // 파이썬의 대답이 있을경우 client에게 그 답을 보내줌
-                const sql = `INSERT INTO dataset (question,option_1,option_2,option_3,option_4,answer) VALUES (?,?,?,?,?,?)`;
-                db.query(sql, [question, option[0], option[1], option[2], option[3],machine_body.answer], function (err, result) {
+                const sql = `INSERT INTO dataset (question,option_1,option_2,option_3,option_4,answer,user_id) VALUES (?,?,?,?,?,?,?)`;
+                db.query(sql, [question, option[0], option[1], option[2], option[3],machine_body.answer,user_id], function (err, result) {
                     if (err) throw err;
                     console.log("dataset successfully inserted into DB")
                 });
