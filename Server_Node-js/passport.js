@@ -11,7 +11,7 @@ module.exports = function (app) {
     port: 3306,
     user: 'root',
     password: '880918',
-    database: 'toeic_solver'
+    database: 'hello'
   };
   var sessionStore = new MySQLStore(options);
   app.use(session({
@@ -51,6 +51,7 @@ module.exports = function (app) {
       passReqToCallback: false
     },
     function (id, password, done) {
+      console.log('Nonexistent id.');
       db.query('SELECT * FROM auth_local WHERE id = ?', [id], function (err, user) {
 
         if (user[0] === undefined) {

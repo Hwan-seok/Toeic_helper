@@ -4,6 +4,6 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '880918',
-  database: 'toeic_solver'
+  database: 'hello'
 });
 module.exports = db;

@@ -84,7 +84,8 @@ app.get('/problem/daily', function (request, response) {
     db.query(sql, function (err, problem) {
         return response.json({
             question: problem[0].question,
-            option: [problem[0].option_1,
+            option: [
+                problem[0].option_1,
                 problem[0].option_2,
                 problem[0].option_3,
                 problem[0].option_4

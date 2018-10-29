@@ -25,7 +25,7 @@ module.exports = function (app) {
             });
         });
     });
-    router.post('/register', function (request, response) { //name= {id , password} 으로 받음 
+    router.post('/register', function (request, response) { //name= {id , password , email} 으로 받음 
         const post = request.body;
         var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz!@#$%^&*()";
         var string_length = 15;
@@ -46,7 +46,7 @@ module.exports = function (app) {
                         request.session.save(function () {
                             return response.json({
                                 SERVER_RESPONSE: 1,
-                                SERVER_MESSAGE: "Register SUCESS"
+                                SERVER_MESSAGE: "Register SUCCESS"
                             });
                         });
                     });
