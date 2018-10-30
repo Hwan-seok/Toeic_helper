@@ -2,19 +2,19 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/loginpage2">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/TextLayout"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="550dp"
+        android:background="@drawable/im_main">
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/LoginButtonLayout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/TextLayout">
 
         <EditText
@@ -23,7 +23,6 @@
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="60dp"
             android:background="@drawable/loginborder"
             android:hint=" Id"
             android:textSize="20dp" />
@@ -51,8 +50,9 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:onClick="mainstart"
+            android:fontFamily="@font/misang"
             android:text="로그인"
-            android:textSize="15dp" />
+            android:textSize="23dp" />
 
     </RelativeLayout>
     <Button
@@ -62,8 +62,9 @@
         android:layout_height="40dp"
         android:layout_below="@+id/LoginButtonLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="28dp"
+        android:fontFamily="@font/misang"
         android:text="회원가입"
         android:onClick="RegistInfo"/>
 

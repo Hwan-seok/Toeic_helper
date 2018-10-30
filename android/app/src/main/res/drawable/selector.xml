@@ -4,10 +4,10 @@
     <item android:state_pressed="true" >
         <shape>
             <solid
-                android:color="#AAA5D6" />
-            <stroke
-                android:width="4dp"
-                android:color="#3A3587" />
+                android:color="#80d8ff" />
+            <!--<stroke-->
+                <!--android:width="4dp"-->
+                <!--android:color="#b5ffff" />-->
             <corners
                 android:radius="8dp" />
             <padding
@@ -21,12 +21,12 @@
     <item android:state_selected="true" >
         <shape>
             <solid
-                android:color="#AAA5D6" />
-            <stroke
-                android:width="4dp"
-                android:color="#3A3587" />
+                android:color="#80d8ff" />
+            <!--<stroke-->
+                <!--android:width="4dp"-->
+                <!--android:color="#b5ffff" />-->
             <corners
-                android:radius="3dp" />
+                android:radius="8dp" />
             <padding
                 android:left="5dp"
                 android:top="5dp"
@@ -38,10 +38,10 @@
     <item>
         <shape>
             <solid
-                android:color="#D4D2D6" />
+                android:color="#FFFFFF" />
             <stroke
-                android:width="3dp"
-                android:color="#000000" />
+                android:width="1dp"
+                android:color="#A4A4A4  " />
             <corners
                 android:radius="8dp" />
             <padding

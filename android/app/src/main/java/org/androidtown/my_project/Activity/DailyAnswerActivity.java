@@ -25,6 +25,9 @@ public class DailyAnswerActivity extends AppCompatActivity {
     protected RelativeLayout OXButtonContainer;
     protected TextView OXText;
 
+    protected String problem;
+    protected String[] option;
+
     protected int answer;
 
     @Override
@@ -50,11 +53,24 @@ public class DailyAnswerActivity extends AppCompatActivity {
         Intent intent=new Intent(this.getIntent());
         intent.getStringExtra("problem");
 
-        ProblemTextView.setText(intent.getStringExtra("problem"));
-        AnswerButton1.setText(intent.getStringExtra("option1"));
-        AnswerButton2.setText(intent.getStringExtra("option2"));
-        AnswerButton3.setText(intent.getStringExtra("option3"));
-        AnswerButton4.setText(intent.getStringExtra("option4"));
+        problem = intent.getStringExtra("problem");
+        option = new String[4];
+        option[0]=intent.getStringExtra("option1");
+        option[1]=intent.getStringExtra("option2");
+        option[2]=intent.getStringExtra("option3");
+        option[3]=intent.getStringExtra("option4");
+
+        ProblemTextView.setText(problem+
+                "\n\n      (A) "+option[0]+
+                "\n      (B) "+option[1]+
+                "\n      (C) "+option[2]+
+                "\n      (D) "+option[3]);
+        AnswerButton1.setText("(A) "+option[0]);
+        AnswerButton2.setText("(B) "+option[1]);
+        AnswerButton3.setText("(C) "+option[2]);
+        AnswerButton4.setText("(D) "+option[3]);
+
+
 
         switch(intent.getStringExtra("selected")) {
             case "1" :
@@ -71,16 +87,16 @@ public class DailyAnswerActivity extends AppCompatActivity {
                 break;
         }
 
-        if(AnswerButton1.getText().toString().equals(intent.getStringExtra("answer"))){
+        if(option[0].equals(intent.getStringExtra("answer"))){
             answer = 1;
         }
-        else if(AnswerButton2.getText().toString().equals(intent.getStringExtra("answer"))){
+        else if(option[1].equals(intent.getStringExtra("answer"))){
             answer = 2;
         }
-        else if(AnswerButton3.getText().toString().equals(intent.getStringExtra("answer"))){
+        else if(option[2].equals(intent.getStringExtra("answer"))){
             answer = 3;
         }
-        else if(AnswerButton4.getText().toString().equals(intent.getStringExtra("answer"))){
+        else if(option[3].equals(intent.getStringExtra("answer"))){
             answer = 4;
         }
 
