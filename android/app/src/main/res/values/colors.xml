@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlack">#151515</color>
+    <color name="cardview_light_background">#EEEEEE</color>
+    <color name="yellow">#F7FE2E</color>
+
+    <color name="fuckingred">#FF1000</color>
+    <color name="fuckinggreen">#119900</color>
+
+    <color name="pressed1">#959ca4</color>
+    <color name="pressed2">#646d79</color>
+
+    <color name="focused1">#FF1011</color>
+    <color name="focused2">#FF7011</color>
+
+    <color name="selected1">#859ca4</color>
+    <color name="selected2">#546d79</color>
+
+    <color name="default1">#686e77</color>
+    <color name="default2">#40474f</color>
+
+    <color name="stroke">#00000000</color>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack">
+
+
+    <Button
+        android:id="@+id/OCRStartButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="OCR Start"
+        android:textSize="20dp"
+        android:onClick="ClickOCRStartButton"/>
+
+    <Button
+        android:id="@+id/SolveProblemButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/OCRStartButton"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Solve Problem"
+        android:textSize="20dp"
+        android:onClick="ClickSolveProblemButton"/>
+
+    <Button
+        android:id="@+id/UserDataButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/SolveProblemButton"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="User Data"
+        android:onClick="ClickUserDataButton"/>
+
+    <Button
+        android:id="@+id/LogOutButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/UserDataButton"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="LogOut"
+        android:onClick="ClickLogOutButton"/>
+
+    <Button
+        android:id="@+id/AppExitButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/LogOutButton"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Exit"
+        android:onClick="ClickAppExitButton"/>
+</RelativeLayout>
