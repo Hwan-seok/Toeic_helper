@@ -3,4 +3,4 @@
 
 Android//
 Node_JS//
-TenserFlow Machine Learning
+Pytorch Machine Learning
