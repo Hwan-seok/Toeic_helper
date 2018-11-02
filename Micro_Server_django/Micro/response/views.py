@@ -7,6 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def problem_solving(request):
+     if request.method == 'GET':
+        answer="ss"
+        return JsonResponse({"answer": answer})
      if request.method == 'POST':
         print("check")
         request_data = ((request.body).decode('utf-8'))
