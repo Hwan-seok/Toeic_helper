@@ -56,7 +56,7 @@ public class ListViewAdapter extends BaseAdapter {
         NumberTextView.setText(String.valueOf(listViewItem.getNumber()));
 
         String problem = listViewItem.getProblemStr();
-        if(problem.length()>20){
+        if(problem.length()>70){
             problem = problem.substring(0,70);
             problem = problem + "...";
             Log.d("problem",problem);

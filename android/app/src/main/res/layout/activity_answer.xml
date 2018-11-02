@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="여기에 문제가 출력됩니다."
-            android:textSize="18dp"
+            android:textSize="35dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
         <Button

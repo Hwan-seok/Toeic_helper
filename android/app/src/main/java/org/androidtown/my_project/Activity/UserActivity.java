@@ -56,7 +56,7 @@ public class UserActivity extends DailyActivity {
             intent.putExtra("option2",Option[1]);
             intent.putExtra("option3",Option[2]);
             intent.putExtra("option4",Option[3]);
-            intent.putExtra("answer",Option[3]);
+            intent.putExtra("answer",answer);
 
             startActivityForResult(intent,1111);
         }
@@ -70,6 +70,7 @@ public class UserActivity extends DailyActivity {
         Option[1] = intent.getStringExtra("Option2");
         Option[2] = intent.getStringExtra("Option3");
         Option[3] = intent.getStringExtra("Option4");
+        answer = intent.getStringExtra("Answer");
 
         ProblemTextView.setText(question + "\n\n      (A) "+Option[0]+ "\n      (B) "+Option[1]+ "\n      (C) "+Option[2]+ "\n      (D) "+Option[3]);
         AnswerButton1.setText("(A) "+Option[0]);

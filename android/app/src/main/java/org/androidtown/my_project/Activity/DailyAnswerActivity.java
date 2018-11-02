@@ -59,6 +59,7 @@ public class DailyAnswerActivity extends AppCompatActivity {
         option[1]=intent.getStringExtra("option2");
         option[2]=intent.getStringExtra("option3");
         option[3]=intent.getStringExtra("option4");
+//        Log.d("this is answer", intent.getStringExtra("answer"));
 
         ProblemTextView.setText(problem+
                 "\n\n      (A) "+option[0]+

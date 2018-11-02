@@ -75,7 +75,6 @@ public class MyPageActivity extends AppCompatActivity {
         try {
 //            TaskResult = m_Task.execute("http://1.201.138.251:80/problem/mine/"+user_id).get();
             TaskResult = m_Task.execute("http://1.201.138.251:80/problem/mine/"+"admin").get();
-            Log.d("TaskResult",TaskResult);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -86,7 +85,7 @@ public class MyPageActivity extends AppCompatActivity {
     private void Additem(String result){
         try {
             JSONArray ItemArray = new JSONArray(TaskResult);
-            for (int i=0; i<20; i++){
+            for (int i=0; i<18; i++){
                 JSONObject ItemObject = ItemArray.getJSONObject(i);
                 String question = ItemObject.getString("question");
                 String op1 = ItemObject.getString("option_1");
@@ -94,6 +93,8 @@ public class MyPageActivity extends AppCompatActivity {
                 String op3 = ItemObject.getString("option_3");
                 String op4 = ItemObject.getString("option_4");
                 String answer = ItemObject.getString("answer");
+
+                Log.d("answer",answer);
 
                 adapter.addItem(i, question,op1,op2,op3,op4,answer) ;
             }
