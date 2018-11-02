@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2ee80927-0097-4bb0-ab89-9b1e3aee0856" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../django_study/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../django_study/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Micro/response/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Micro/response/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Micro/Micro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Micro/Micro/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,25 +27,25 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="70" />
+          <entry key="py" value="71" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="70" />
+          <entry key="Python" value="71" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="562" />
+          <entry key="py" value="599" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="562" />
+          <entry key="Python" value="599" />
         </counts>
       </usages-collector>
     </session>
@@ -75,7 +74,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Micro/response/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -83,6 +82,15 @@
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Micro/Micro/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -114,15 +122,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Micro/response/models.py">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Micro/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -169,6 +168,7 @@
         <option value="$PROJECT_DIR$/Micro/.gitignore" />
         <option value="$PROJECT_DIR$/Micro/response/ML_model.py" />
         <option value="$PROJECT_DIR$/Micro/response/views.py" />
+        <option value="$PROJECT_DIR$/Micro/Micro/settings.py" />
       </list>
     </option>
   </component>
@@ -326,13 +326,6 @@
     <entry file="file://$PROJECT_DIR$/Micro/Micro/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Micro/Micro/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1197">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../django_study/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -444,6 +437,13 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Micro/Micro/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
         </state>
       </provider>
     </entry>
