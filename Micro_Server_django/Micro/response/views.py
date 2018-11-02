@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+
 @csrf_exempt
 def problem_solving(request):
      if request.method == 'POST':
