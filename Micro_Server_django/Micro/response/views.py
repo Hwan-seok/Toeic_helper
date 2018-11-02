@@ -294,24 +294,28 @@ def one_problem_test(sentence, a1, a2, a3, a4):
 
     print(answers)
     one_indice = []
-
+    
     for i, pred_item in enumerate(pred):
         if pred_item[0] == 1:
             one_indice.append(i)
+    print(one_indice)
     if len(one_indice) == 1:
-        return answers[one_dice[0]]
+        return answers[one_indice[0]]
     elif len(one_indice) == 0:
         result_list = []
-        for i in range(0, 4):
-            result_list.append(pred[index][0])
+        for index in range(0, 4):
+            result_list.append(output[index][1])
+        print("result!!!!!!!!!!!,,",result_list)
         return answers[result_list.index(max(result_list))]
     else:
         index_list = []
         result_list = []
         for index in one_indice:
             index_list.append(index)
-            result_list.append(pred[index][0])
-        return answers[index_list[max(result_list)]]
+            result_list.append(output[index][1])
+        print("result!!!!!!,,",result_list)
+        print("qweqweqweqwe",max(result_list))
+        return answers[index_list[result_list.index(max(result_list))]]
 def just_test():
     file=open("test.txt","rb")
     return_value = file.read()
