@@ -1,7 +1,6 @@
 const sha = require('sha256');
 const db = require('./db.js');
 var session = require('express-session');
-const KakaoStrategy_options = require('./kakao_option.js');
 
 var MySQLStore = require('express-mysql-session')(session);
 module.exports = function (app) {
@@ -70,6 +69,7 @@ module.exports = function (app) {
         return done(null, user[0]);
       })
     }));
+<<<<<<< HEAD
     passport.use(new KakaoStrategy(
       KakaoStrategy_options,
     function(request,accessToken, refreshToken, profile, done){
@@ -91,5 +91,7 @@ module.exports = function (app) {
         });
     }
   ))
+=======
+>>>>>>> 6d9f1465d49147864329954a4427daf90783a5c2
   return passport;
 }
