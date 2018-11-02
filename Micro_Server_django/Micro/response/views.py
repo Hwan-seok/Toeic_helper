@@ -12,14 +12,12 @@ from django.views.decorators.csrf import csrf_exempt
 import csv
 import numpy as np
 from torch.autograd import Variable
-from torch.utils.data
-import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 import nltk
-
 nltk.download('punkt')
 import time
 import pandas as pd
@@ -201,7 +199,7 @@ class myModel(nn.Module):
         self.n_classes = n_classes
         self.n_directions = int(bidirectional) + 1
 
-        self.embed = nn.Embedding(n_vocab, embed_dim)
+        self.embed = nn.Embedding(self.n_vocab, self.embed_dim)
         self.dropout = nn.Dropout(dropout_p)
         #         self.lstm = nn.LSTM(self.embed_dim, self.hidden_dim,
         #                             num_layers=self.n_layers,
@@ -243,6 +241,10 @@ class myModel(nn.Module):
         hidden = torch.zeros((self.n_layers, self.n_directions,
                               batch_size, self.hidden_dim))
         return create_variable(hidden)
+    def change(vocabsize):
+        self.n_vocab = vocabsize
+        self.embed = nn.Embedding(self.n_vocab,self.embed_dim)
+
 
 
 # In[182]:
@@ -254,7 +256,7 @@ def one_problem_test(sentence, a1, a2, a3, a4):
     print(sentences)
 
     # 단어집 불러오기
-    file = open("vocabulary", "rb")
+    file = open('./response/vocabulary', "rb")
     vocabulary = pickle.load(file)
     file.close()
 
@@ -269,9 +271,12 @@ def one_problem_test(sentence, a1, a2, a3, a4):
     word_to_ix_t['_UNK'] = 1
     vocabsize_t = len(word_to_ix_t)
     # 모델 부르기
-    test_model = torch.load('saved_gru')
+
+    print("qoqoqoqoqqooqqoqooqoqoqoqooqqoqo")
+    test_model = torch.load('./response/saved_gru')
     test_model.n_vocab = vocabsize_t
     test_model.embed = nn.Embedding(test_model.n_vocab, test_model.embed_dim)
+    #test_mode.change(vocabsize_t)
 
     input, seq_lengths, target = make_variables(sentences, [], word_to_ix_t)
 
@@ -307,7 +312,13 @@ def one_problem_test(sentence, a1, a2, a3, a4):
             index_list.append(index)
             result_list.append(pred[index][0])
         return answers[index_list[max(result_list)]]
-
+def just_test():
+    file=open("test.txt","rb")
+    return_value = file.read()
+    print(return_value)
+    print('qeqweqweqweqweqwewqeqweqw')
+    file.close()
+    return return_value
 
 @csrf_exempt
 def problem_solving(request):
@@ -324,5 +335,5 @@ def problem_solving(request):
         option_3 =request_data['option'][2]
         option_4 =request_data['option'][3]
         answer=one_problem_test(question,option_1,option_2,option_3,option_4)
-
+        #answer = just_test()
         return JsonResponse({"answer":answer})
