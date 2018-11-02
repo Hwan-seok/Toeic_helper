@@ -1,0 +1,3 @@
+LOAD DATA local INFILE "./dataset.txt" INTO TABLE toeic_solver.dataset CHARACTER SET utf8 FIELDS TERMINATED BY "\t" (question,option_1,option_2,option_3,option_4,answer);.
+
+로그인 방식 mysql -uroot -p --local-infile
