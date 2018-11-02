@@ -12,8 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 import csv
 import numpy as np
 from torch.autograd import Variable
-from torch.utils.data
-import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -21,11 +20,11 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 import nltk
 
 nltk.download('punkt')
-import time
 import pandas as pd
 import pickle
 
 
+import time
 # In[101]:
 
 
@@ -312,7 +311,7 @@ def one_problem_test(sentence, a1, a2, a3, a4):
 @csrf_exempt
 def problem_solving(request):
      if request.method == 'GET':
-        answer="Wrong approach"
+        answer="Wrong approcah"
         return JsonResponse({"answer": answer})
      if request.method == 'POST':
         print("check")
