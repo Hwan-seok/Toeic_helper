@@ -1,7 +1,3 @@
-# coding: utf-8
-
-# In[ ]:
-
 
 import csv
 import numpy as np
@@ -17,10 +13,6 @@ nltk.download('punkt')
 import time
 import pandas as pd
 import pickle
-
-
-# In[ ]:
-
 
 # make torch
 def make_variables(sentences, label, vocabulary):
