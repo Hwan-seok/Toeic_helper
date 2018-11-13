@@ -65,7 +65,7 @@ app.get('/problem/daily', function (request, response) {
     });
 })
 app.get('/problem/mine/:user_id',function(request,response){
-    const sql=`SELECT DISTINCT question,option_1,option_2,option_3,option_4,answer FROM dataset where user_id=?`;
+    const sql=`SELECT question,option_1,option_2,option_3,option_4,answer FROM dataset where user_id="test1" GROUP BY question`;
     db.query(sql,[request.params.user_id],function(err,results){
         if(err)throw err;
         return response.json(results);  // user_id 와 일치하는 문제 선택해 전송
