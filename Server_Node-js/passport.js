@@ -9,7 +9,7 @@ module.exports = function (app) {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '',
+    password: '880918',
     database: 'toeic_solver'
   };
   var sessionStore = new MySQLStore(options);
@@ -21,9 +21,7 @@ module.exports = function (app) {
     saveUninitialized: true
   }));
   const passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
-  facebookStrategy = require('passport-facebook').Strategy,
-  KakaoStrategy = require('passport-kakao').Strategy;
+    LocalStrategy = require('passport-local').Strategy
   
   app.use(passport.initialize());
   app.use(passport.session());
