@@ -7,3 +7,5 @@
 ##Node_JS
 ##Django 
 ##Pytorch Machine Learning
+
+강환석 김원규 
