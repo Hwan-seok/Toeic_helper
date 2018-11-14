@@ -9,8 +9,13 @@
 # Main Server(Node.js)
 functions
 
-* problem solving : server RE requests to micro server(Django) -> Receive Answer(Django Sended)
-                  -> send Answer to client
+* problem solving : 
+
+                     1. server re-requests to micro server(Django) 
+                     
+                     2. Receive Answer(Django Sended)
+                     
+                     3. send Answer to client
                   
 * Daily Toeic : Serves problem from DataBase(dataset) to client when they want to solve one
 
