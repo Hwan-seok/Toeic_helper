@@ -43,7 +43,7 @@ __DataBase__ : [MYSQL](https://www.mysql.com/)
       
         -dataset_init
       
-# Micro Server[Django](https://www.djangoproject.com/)
+# Micro Server([Django](https://www.djangoproject.com/))
  ### __functions__
   
   * imports Machine Learning Model
