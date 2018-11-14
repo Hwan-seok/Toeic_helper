@@ -241,11 +241,10 @@ def one_problem_test(sentence, a1, a2, a3, a4):
     input, seq_lengths, target = make_variables(sentences, [], word_to_ix)
 
     output = test_model(input, seq_lengths)
+    output = output.view(4,2)
     pred = output.data.max(1, keepdim=True)[1]
     print("softmax 직후...", output)
     print("1개만 고른후...", pred)
-
-    pred = pred.view(4,2)
     print("pred", pred)
     print(pred[1][0])
     answers = []
