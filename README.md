@@ -6,7 +6,7 @@
 * 배상현 Android
 ---
 # Android
-# Main Server[Node.js](https://nodejs.org/ko/)
+# Main Server([Node.js](https://nodejs.org/ko/))
 ### __functions__
 
 * problem solving : 
