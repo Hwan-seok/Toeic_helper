@@ -245,6 +245,7 @@ def one_problem_test(sentence, a1, a2, a3, a4):
     print("softmax 직후...", output)
     print("1개만 고른후...", pred)
 
+    pred = pred.view(4,2)
     print("pred", pred)
     print(pred[1][0])
     answers = []
