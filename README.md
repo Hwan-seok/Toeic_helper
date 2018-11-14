@@ -1,14 +1,53 @@
 # Toeic_helper
 토풀남 (토익 대신 풀어주는 남자) 프로젝트 KHUVELOPER
 
-#used
+강환석 Server
+김원규 Pytorch Machine Learning
+배상현 Android
 
-##Android
-##Node_JS
-##Django 
-##Pytorch Machine Learning
+# Android
+# Main Server(Node.js)
+functions
 
-강환석 김원규 배상현
+* problem solving : server RE requests to micro server(Django) -> Receive Answer(Django Sended)
+                  -> send Answer to client
+                  
+* Daily Toeic : Serves problem from DataBase(dataset) to client when they want to solve one
+
+* MY Page : Show problems what user asked and give a chance to re-answer it
+
+* authenticate : passport.js 
+
+                -Local Strategy
+                
+                -KaKao Strategy
+                
+                -MYSQL Session Store
+                
+* DataBase : MYSQL
+
+    Tables
+
+        -auth_local
+      
+        -auth_kakao
+      
+        -sessions
+      
+        -dataset_user
+      
+        -dataset_init
+      
+# Micro Server(Django) 
+  functions
+  
+  * imports Machine Learning Model
+  
+  * send answer to Main server when they ask Toeic problem
+  
+  * derives answer from Machine Learning Model
+
+# Pytorch Machine Learning
 
 # Model 설명
 input: 토익 PART5 문제의 빈칸에 보기를 넣은 문장 4개
