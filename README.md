@@ -4,10 +4,10 @@
 * 강환석 Server
 * 김원규 Pytorch Machine Learning
 * 배상현 Android
-
+---
 # Android
-# Main Server(Node.js)
-functions
+# Main Server[Node.js](https://nodejs.org/ko/)
+### __functions__
 
 * problem solving : 
 
@@ -21,7 +21,7 @@ functions
 
 * MY Page : Show problems what user asked and give a chance to re-answer it
 
-* authenticate : passport.js 
+* authenticate : [passport.js](http://www.passportjs.org/) 
 
                 -Local Strategy
                 
@@ -29,7 +29,7 @@ functions
                 
                 -MYSQL Session Store
                 
-* DataBase : MYSQL
+__DataBase__ : [MYSQL](https://www.mysql.com/)
 
     Tables
 
@@ -44,14 +44,14 @@ functions
         -dataset_init
       
 # Micro Server(Django) 
-  functions
+ ### __functions__
   
   * imports Machine Learning Model
   
   * send answer to Main server when they ask Toeic problem
   
   * derives answer from Machine Learning Model
-
+---
 # Pytorch Machine Learning
 
 # Model 설명
