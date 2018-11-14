@@ -1,9 +1,9 @@
 # Toeic_helper
 토풀남 (토익 대신 풀어주는 남자) 프로젝트 KHUVELOPER
 
-강환석 Server
-김원규 Pytorch Machine Learning
-배상현 Android
+* 강환석 Server
+* 김원규 Pytorch Machine Learning
+* 배상현 Android
 
 # Android
 # Main Server(Node.js)
