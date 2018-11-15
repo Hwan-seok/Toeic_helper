@@ -1,7 +1,6 @@
 const sha = require('sha256');
 const db = require('./db.js');
 var session = require('express-session');
-const KakaoStrategy_options = require('./kakao_option.js');
 
 var MySQLStore = require('express-mysql-session')(session);
 module.exports = function (app) {
@@ -10,7 +9,7 @@ module.exports = function (app) {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '',
+    password: '880918',
     database: 'toeic_solver'
   };
   var sessionStore = new MySQLStore(options);
@@ -22,9 +21,7 @@ module.exports = function (app) {
     saveUninitialized: true
   }));
   const passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
-  facebookStrategy = require('passport-facebook').Strategy,
-  KakaoStrategy = require('passport-kakao').Strategy;
+    LocalStrategy = require('passport-local').Strategy
   
   app.use(passport.initialize());
   app.use(passport.session());
@@ -70,27 +67,5 @@ module.exports = function (app) {
         return done(null, user[0]);
       })
     }));
-    passport.use(new KakaoStrategy(
-      KakaoStrategy_options
-    ,
-    function(request,accessToken, refreshToken, profile, done){
-      // 사용자의 정보는 profile에 들어있다.
-        db.query('SELECT id FROM auth_kakao WHERE id = ?', profile.id, function (err, result) {
-          if (result[0]) {
-            console.log("login with kakao", profile,result);
-            return done(null, profile);
-          } // 회원 정보가 있으면 로그인
-          db.query('INSERT INTO auth_kakao (id,name,nickname,profile_image) VALUES (?,?,?,?)',
-          [profile.id,profile.username,profile.displayName,profile._json.properties.profile_image], function (err, result) {
-            console.log("register with kakao",profile , result);
-            request.login(profile, function (err) {
-              request.session.save(function () {
-                return done(null, profile); // 새로운 회원 생성 후 로그인
-              })
-            })
-          });
-        });
-    }
-  ))
   return passport;
 }
