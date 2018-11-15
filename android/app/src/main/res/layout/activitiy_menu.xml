@@ -1,177 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
 
-    <RelativeLayout
-        android:id="@+id/mainImage"
-        android:layout_width="300dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="60dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/im_menu">
-    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <RelativeLayout
-        android:id="@+id/OCRStartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/mainImage"
-        android:background="@drawable/menubutton"
-        android:layout_marginTop="35dp">
         <ImageButton
-            android:id="@+id/OCRImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#80d8ff"
-            android:src="@drawable/bt_ocr"
+            android:id="@+id/Model_description"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:layout_gravity="end"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-        <Button
-            android:id="@+id/OCRButton"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_margin="5dp"
-            android:layout_toRightOf="@+id/OCRImage"
-            android:fontFamily="@font/misang"
-            android:text="풀어줘 문제!"
-            android:textSize="30dp"
-            android:background="@drawable/menubutton"
-            android:onClick="ClickOCRStartButton"/>
-    </RelativeLayout>
+            android:background="#FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bt_model"
+            android:onClick="ClickModelButton"/>
 
-    <RelativeLayout
-        android:id="@+id/SolveProblemButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/OCRStartButton"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/menubutton"
-        android:layout_marginTop="20dp">
-        <ImageButton
-            android:id="@+id/dailyImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#80d8ff"
-            android:src="@drawable/bt_daily"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/dailyImage"
-            android:fontFamily="@font/misang"
-            android:text="한문제씩 풀어봐"
-            android:textSize="30dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/menubutton"
-            android:onClick="ClickSolveProblemButton"/>
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-    <RelativeLayout
-        android:id="@+id/UserDataButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SolveProblemButton"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/menubutton"
-        android:layout_marginTop="20dp">
-        <ImageButton
-            android:id="@+id/UserImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#80d8ff"
-            android:src="@drawable/bt_user"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/UserImage"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/misang"
-            android:textSize="30dp"
-            android:layout_margin="5dp"
-            android:text="내 문제 다시보기"
-            android:background="@drawable/menubutton"
-            android:onClick="ClickUserDataButton"/>
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15" />
 
-    <RelativeLayout
-        android:id="@+id/LogOutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/UserDataButton"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/menubutton"
-        android:layout_marginTop="20dp">
-        <ImageButton
-            android:id="@+id/LogoutImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#80d8ff"
-            android:src="@drawable/bt_logout"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/LogoutImage"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/misang"
-            android:textSize="30dp"
-            android:layout_margin="5dp"
-            android:text="로그아웃"
-            android:background="@drawable/menubutton"
-            android:onClick="ClickLogOutButton"/>
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/mainImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:background="@drawable/im_menu"/>
+        </LinearLayout>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/AppExitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LogOutButton"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/menubutton"
-        android:layout_marginTop="20dp">
-        <ImageButton
-            android:id="@+id/ExitImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#80d8ff"
-            android:src="@drawable/bt_exit"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/ExitImage"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/misang"
-            android:textSize="30dp"
-            android:layout_margin="5dp"
-            android:text="나가기"
-            android:background="@drawable/menubutton"
-            android:onClick="ClickAppExitButton"/>
-    </RelativeLayout>
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:weightSum="20">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:id="@+id/OCRStartButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/menubutton"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/OCRImage"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="#80d8ff"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bt_ocr" />
+
+                <Button
+                    android:id="@+id/OCRButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/menubutton"
+                    android:fontFamily="@font/misang"
+                    android:onClick="ClickOCRStartButton"
+                    android:text="풀어줘 문제!"
+                    android:textSize="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:id="@+id/SolveProblemButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/menubutton"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/dailyImage"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="#80d8ff"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bt_daily" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/menubutton"
+                    android:fontFamily="@font/misang"
+                    android:onClick="ClickSolveProblemButton"
+                    android:text="한문제씩 풀어봐"
+                    android:textSize="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:id="@+id/UserDataButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/menubutton"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/UserImage"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="#80d8ff"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bt_user" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/menubutton"
+                    android:fontFamily="@font/misang"
+                    android:onClick="ClickUserDataButton"
+                    android:text="내 문제 다시보기"
+                    android:textSize="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:id="@+id/LogOutButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/menubutton"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/LogoutImage"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="#80d8ff"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bt_logout" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/menubutton"
+                    android:fontFamily="@font/misang"
+                    android:onClick="ClickLogOutButton"
+                    android:text="로그아웃"
+                    android:textSize="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:id="@+id/AppExitButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/menubutton"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ExitImage"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="#80d8ff"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bt_exit" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/menubutton"
+                    android:fontFamily="@font/misang"
+                    android:onClick="ClickAppExitButton"
+                    android:text="나가기"
+                    android:textSize="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

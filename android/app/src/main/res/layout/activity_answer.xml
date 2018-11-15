@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/TextLayout"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_alignParentTop="true">
 
         <TextView
@@ -22,7 +22,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/viewedge"
             android:text="여기에 문제가 출력됩니다."
-            android:textSize="19dp" />
+            android:textSize="17dp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/misang"
             android:text="정답 칸"
-            android:textSize= "30dp"
+            android:textSize= "25dp"
             android:textColor="#ffffff"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:textSize= "30dp"
+            android:textSize= "25dp"
             android:background="#49a7cc"
             android:fontFamily="@font/misang"
             android:text="뒤로가기"
