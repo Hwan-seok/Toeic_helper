@@ -51,12 +51,12 @@ public class UserActivity extends DailyActivity {
                 return;
             }
 
-            intent.putExtra("problem",ProblemTextView.getText().toString());
-            intent.putExtra("option1",AnswerButton1.getText().toString());
-            intent.putExtra("option2",AnswerButton2.getText().toString());
-            intent.putExtra("option3",AnswerButton3.getText().toString());
-            intent.putExtra("option4",AnswerButton4.getText().toString());
-            intent.putExtra("answer",AnswerButton4.getText().toString());
+            intent.putExtra("problem",question);
+            intent.putExtra("option1",Option[0]);
+            intent.putExtra("option2",Option[1]);
+            intent.putExtra("option3",Option[2]);
+            intent.putExtra("option4",Option[3]);
+            intent.putExtra("answer",answer);
 
             startActivityForResult(intent,1111);
         }
@@ -64,11 +64,19 @@ public class UserActivity extends DailyActivity {
 
     protected void LoadProblem(){
         Intent intent = getIntent();
-        ProblemTextView.setText(intent.getStringExtra("problem"));
-        AnswerButton1.setText(intent.getStringExtra("Option1"));
-        AnswerButton2.setText(intent.getStringExtra("Option2"));
-        AnswerButton3.setText(intent.getStringExtra("Option3"));
-        AnswerButton4.setText(intent.getStringExtra("Option4"));
+        Option = new String[4];
+        question = intent.getStringExtra("problem");
+        Option[0] = intent.getStringExtra("Option1");
+        Option[1] = intent.getStringExtra("Option2");
+        Option[2] = intent.getStringExtra("Option3");
+        Option[3] = intent.getStringExtra("Option4");
+        answer = intent.getStringExtra("Answer");
+
+        ProblemTextView.setText(question + "\n\n      (A) "+Option[0]+ "\n      (B) "+Option[1]+ "\n      (C) "+Option[2]+ "\n      (D) "+Option[3]);
+        AnswerButton1.setText("(A) "+Option[0]);
+        AnswerButton2.setText("(B) "+Option[1]);
+        AnswerButton3.setText("(C) "+Option[2]);
+        AnswerButton4.setText("(D) "+Option[3]);
     }
 
 

@@ -8,16 +8,16 @@
     <RelativeLayout
         android:id="@+id/ProblemLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="280dp">
 
         <TextView
             android:id="@+id/ProblemTextView"
             android:layout_width="match_parent"
             android:layout_height="257dp"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:textColor="#000000"
             android:background="@drawable/viewedge"
             android:text="여기에 문제가 출력됩니다."
@@ -27,7 +27,7 @@
     <RelativeLayout
         android:id="@+id/OXButtonContainer"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="38dp"
         android:background="#166e78"
         android:layout_below="@+id/ProblemLayout">
 
@@ -35,9 +35,10 @@
             android:id="@+id/OXText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/misang"
             android:text="O/X"
-            android:textSize= "19dp"
-            android:textColor="#ffffff"
+            android:textSize= "25dp"
+            android:textColor="#000000"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:clickable="true" />
@@ -53,8 +54,10 @@
             android:id="@+id/Answer1Button"
             android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="45dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/selector"
             android:text="문제1"
             android:textSize="18dp"/>
@@ -63,8 +66,10 @@
             android:id="@+id/Answer2Button"
             android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="45dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_below="@+id/Answer1Button"
             android:background="@drawable/selector"
             android:text="문제2"
@@ -74,8 +79,10 @@
             android:id="@+id/Answer3Button"
             android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="45dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_below="@+id/Answer2Button"
             android:background="@drawable/selector"
             android:text="문제3"
@@ -85,8 +92,10 @@
             android:id="@+id/Answer4Button"
             android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="45dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_below="@+id/Answer3Button"
             android:background="@drawable/selector"
             android:text="문제4"
@@ -107,7 +116,7 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/selector"
             android:text="다른문제 풀기"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:onClick="ExitIntent"/>
 
     </RelativeLayout>

@@ -34,7 +34,18 @@ public class AnswerActivity extends AppCompatActivity {
         AnswerView = (TextView) findViewById(R.id.AnswerTextView);
 
         ProblemView.setText(problem + "\n\n" + "(A) "+example1 + "\n\n" + "(B) "+example2+ "\n\n" + "(C) "+example3+ "\n\n" + "(D) "+example4);
-        AnswerView.setText(Answer);
+        if(Answer.equals(example1)){
+            AnswerView.setText("(A) "+Answer);
+        }
+        else if(Answer.equals(example2)){
+            AnswerView.setText("(B) "+Answer);
+        }
+        else if(Answer.equals(example3)){
+            AnswerView.setText("(C) "+Answer);
+        }
+        else if(Answer.equals(example4)){
+            AnswerView.setText("(D) "+Answer);
+        }
     }
 
     public void ClickButton(View view){

@@ -18,21 +18,24 @@
             android:layout_weight="1"
             android:background="@drawable/title_view"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/misang"
             android:text="번호"
-            android:textSize="20dp" />
+            android:textSize="28dp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:gravity="center_horizontal"
-            android:textSize="20dp"
+            android:fontFamily="@font/misang"
+            android:textSize="28dp"
             android:text="문제"
             android:background="@drawable/title_view"/>
     </LinearLayout>
     
     <ScrollView
         android:layout_below="@+id/Title"
+        android:layout_above="@+id/helper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -45,5 +48,20 @@
         </ListView>
 
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/helper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/misang"
+            android:textSize="28dp"
+            android:text="다시 풀고싶은 문제를 클릭!"
+            android:background="@drawable/title_view"/>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import org.androidtown.my_project.R;
 public class UserAnswerActivity extends DailyAnswerActivity {
 
 
+
     //다른문제 풀기 누를시에 엑티비티 종료
     public void ExitIntent(View view){
         Intent intent2 = new Intent();

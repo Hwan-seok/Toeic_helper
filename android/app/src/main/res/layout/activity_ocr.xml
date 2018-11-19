@@ -8,15 +8,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:background="#ffffff"
         android:id="@+id/ImageContainer"
         android:clickable="true"
         android:onClick="ClickImage">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/im_click"
             android:text="이미지"/>
 
         <ImageView
@@ -33,15 +36,16 @@
         android:layout_height="42dp"
         android:clickable="true"
         android:onClick="processImage"
-        android:background="#166e78"
+        android:background="#80d8ff"
         android:id="@+id/OCRButtonContainer"
         android:layout_below="@+id/ImageContainer">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RUN OCR"
-            android:textSize= "19dp"
+            android:fontFamily="@font/misang"
+            android:text="이미지 텍스트로 전환시키기 (클릭)"
+            android:textSize= "30dp"
             android:textColor="#ffffff"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
@@ -73,10 +77,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:background="#166e78"
+            android:background="#49a7cc"
+            android:fontFamily="@font/misang"
             android:text="전송"
             android:textColor="#ffffff"
-            android:textSize="15dp"
+            android:textSize="30dp"
             android:onClick="Clicksendbutton"/>
     </RelativeLayout>
 </RelativeLayout>

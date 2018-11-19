@@ -31,6 +31,8 @@ public class DailyActivity extends AppCompatActivity {
     protected DailyTask m_DailyTask;
     protected String TaskResult;
 
+    protected String question;
+    protected String[] Option;
 
     protected String answer;
 
@@ -113,11 +115,11 @@ public class DailyActivity extends AppCompatActivity {
                 return;
             }
 
-            intent.putExtra("problem",ProblemTextView.getText().toString());
-            intent.putExtra("option1",AnswerButton1.getText().toString());
-            intent.putExtra("option2",AnswerButton2.getText().toString());
-            intent.putExtra("option3",AnswerButton3.getText().toString());
-            intent.putExtra("option4",AnswerButton4.getText().toString());
+            intent.putExtra("problem",question);
+            intent.putExtra("option1",Option[0]);
+            intent.putExtra("option2",Option[1]);
+            intent.putExtra("option3",Option[2]);
+            intent.putExtra("option4",Option[3]);
             intent.putExtra("answer",answer);
 
             startActivityForResult(intent,1111);
@@ -140,9 +142,9 @@ public class DailyActivity extends AppCompatActivity {
     protected void ParsingString(String Result){
         JSONObject jObject = null;
         try {
-            String[] Option = new String[4];
+            Option = new String[4];
             jObject = new JSONObject(Result);
-            String question = jObject.getString("question");
+            question = jObject.getString("question");
 
             JSONArray OptionArray = jObject.getJSONArray("option");
             for(int i=0;i<OptionArray.length();i++){
@@ -151,11 +153,11 @@ public class DailyActivity extends AppCompatActivity {
 
             answer = jObject.getString("answer");
 
-            ProblemTextView.setText(question);
-            AnswerButton1.setText(Option[0]);
-            AnswerButton2.setText(Option[1]);
-            AnswerButton3.setText(Option[2]);
-            AnswerButton4.setText(Option[3]);
+            ProblemTextView.setText(question + "\n\n      (A) "+Option[0]+ "\n      (B) "+Option[1]+ "\n      (C) "+Option[2]+ "\n      (D) "+Option[3] );
+            AnswerButton1.setText("(A) "+Option[0]);
+            AnswerButton2.setText("(B) "+Option[1]);
+            AnswerButton3.setText("(C) "+Option[2]);
+            AnswerButton4.setText("(D) "+Option[3]);
 
 
 

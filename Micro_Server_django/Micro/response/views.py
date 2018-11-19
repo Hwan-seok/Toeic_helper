@@ -28,8 +28,9 @@ import time
 
 
 # make torch
-def make_variables(sentences, label, vocabulary):
+def make_variables(sentences, label, word_to_ix):
     final_sentences = []
+    final_sentences_ = []
 
     # tokenizing
     for index, sentence in enumerate(sentences):
@@ -37,7 +38,13 @@ def make_variables(sentences, label, vocabulary):
 
     # indexing
     for index, sentence in enumerate(final_sentences):
-        final_sentences[index] = [vocabulary[word] for word in sentence]
+        added_sentence = []
+        for word in sentence:
+            if word in word_to_ix:
+                added_sentence.append(word_to_ix[word])
+            else:
+                added_sentence.append(word_to_ix['_UNK'])
+        final_sentences_.append(added_sentence)
 
     # 각자의 seq_length 구하기 (미니배치별로 진행)
     seq_lengths = []
@@ -45,11 +52,7 @@ def make_variables(sentences, label, vocabulary):
         seq_lengths.append(len(sentence))
     seq_lengths = torch.LongTensor(seq_lengths)
 
-    #     print("패딩전")
-    #     print(final_sentences[:5])
-    #     print(seq_lengths[:5])
-    #     print(label[:5])
-    return padding_tensor_sorting(final_sentences, seq_lengths, label)
+    return padding_tensor_sorting(final_sentences_, seq_lengths, label)
 
 
 # In[102]:
@@ -57,7 +60,6 @@ def make_variables(sentences, label, vocabulary):
 
 def padding_tensor_sorting(sentences, seq_lengths, label):
     seq_tensor = torch.zeros((len(sentences), seq_lengths.max())).long()
-    print('seq_tensor(max):', seq_lengths.max())
     for idx, (seq, seq_len) in enumerate(zip(sentences, seq_lengths)):
         seq_tensor[idx, :seq_len] = torch.LongTensor(seq)
 
@@ -199,52 +201,28 @@ class myModel(nn.Module):
         self.n_classes = n_classes
         self.n_directions = int(bidirectional) + 1
 
-        self.embed = nn.Embedding(self.n_vocab, self.embed_dim)
+        self.embed = nn.Embedding(n_vocab, embed_dim)
         self.dropout = nn.Dropout(dropout_p)
-        #         self.lstm = nn.LSTM(self.embed_dim, self.hidden_dim,
-        #                             num_layers=self.n_layers,
-        #                             dropout=dropout_p,
-        #                             batch_first=True)
-        self.lstm = nn.GRU(self.embed_dim, self.hidden_dim,
-                           self.n_layers,
-                           # dropout=dropout_p,
-                           batch_first=True)
-        #         self.relu = nn.ReLU()
+        self.lstm = nn.LSTM(self.embed_dim, self.hidden_dim)
         self.out = nn.Linear(self.hidden_dim, self.n_classes)
 
-    #         self.fc1 = nn.Linear(self.hidden_dim, 50)
-    #         self.fc2 = nn.Linear(50, self.n_classes)
     def forward(self, x, seq_lengths):
         x = x.t()
-        sen_len = x.size(0)
         batch_size = x.size(1)
-        print(self.n_layers, self.hidden_dim, self.n_vocab, self.embed_dim, self.n_classes, self.n_directions)
-
-        print(x)
         embedded = self.embed(x)
+        h_0 = self._init_hidden(batch_size)
 
-        #         print(embedded)
         lstm_input = pack_padded_sequence(embedded, seq_lengths.data.cpu().numpy())
-        self.hidden = self._init_hidden(batch_size)
-        self.lstm.flatten_parameters()
-
-        lstm_out, self.hidden = self.lstm(lstm_input)
+        lstm_out, self.hidden = self.lstm(lstm_input, h_0)
         lstm_out, lengths = pad_packed_sequence(lstm_out)
-
-        #         h_t = self.dropout(self.hidden[-1])
-        #         logit = self.out(h_t[-1])
-        logit = self.out(self.hidden[-1])
-        #         print(logit)
+        h_t = self.dropout(self.hidden[-1])
+        logit = self.out(h_t[-1])
         return logit
 
     def _init_hidden(self, batch_size):
-        hidden = torch.zeros((self.n_layers, self.n_directions,
-                              batch_size, self.hidden_dim))
-        return create_variable(hidden)
-    def change(vocabsize):
-        self.n_vocab = vocabsize
-        self.embed = nn.Embedding(self.n_vocab,self.embed_dim)
-
+        h0 = torch.zeros(1, batch_size, self.hidden_dim)
+        c0 = torch.zeros(1, batch_size, self.hidden_dim)
+        return (create_variable(h0), create_variable(c0))
 
 
 # In[182]:
@@ -252,35 +230,18 @@ class myModel(nn.Module):
 
 def one_problem_test(sentence, a1, a2, a3, a4):
     sentences = pre_process_test(sentence, a1, a2, a3, a4)
-
     print(sentences)
 
     # 단어집 불러오기
-    file = open('./response/vocabulary', "rb")
-    vocabulary = pickle.load(file)
+    file = open("vocabulary", "rb")
+    word_to_ix = pickle.load(file)
     file.close()
 
-    vocab = set()
-    for index, sentence in enumerate(sentences):
-        temp = nltk.word_tokenize(sentence)
-        vocab.update(temp)
-    vocab.update(vocabulary)
-
-    word_to_ix_t = {word: i + 2 for i, word in enumerate(vocab)}
-    word_to_ix_t['_PAD'] = 0
-    word_to_ix_t['_UNK'] = 1
-    vocabsize_t = len(word_to_ix_t)
-    # 모델 부르기
-
-    print("qoqoqoqoqqooqqoqooqoqoqoqooqqoqo")
-    test_model = torch.load('./response/saved_gru')
-    test_model.n_vocab = vocabsize_t
-    test_model.embed = nn.Embedding(test_model.n_vocab, test_model.embed_dim)
-    #test_mode.change(vocabsize_t)
-
-    input, seq_lengths, target = make_variables(sentences, [], word_to_ix_t)
+    test_model = torch.load('saved_gru')
+    input, seq_lengths, target = make_variables(sentences, [], word_to_ix)
 
     output = test_model(input, seq_lengths)
+    output = output.view(4,2)
     pred = output.data.max(1, keepdim=True)[1]
     print("softmax 직후...", output)
     print("1개만 고른후...", pred)
@@ -294,7 +255,7 @@ def one_problem_test(sentence, a1, a2, a3, a4):
 
     print(answers)
     one_indice = []
-    
+
     for i, pred_item in enumerate(pred):
         if pred_item[0] == 1:
             one_indice.append(i)
@@ -305,7 +266,7 @@ def one_problem_test(sentence, a1, a2, a3, a4):
         result_list = []
         for index in range(0, 4):
             result_list.append(output[index][1])
-        print("result!!!!!!!!!!!,,",result_list)
+        print("result!!!!!!!!!!!,,", result_list)
         return answers[result_list.index(max(result_list))]
     else:
         index_list = []
@@ -313,16 +274,10 @@ def one_problem_test(sentence, a1, a2, a3, a4):
         for index in one_indice:
             index_list.append(index)
             result_list.append(output[index][1])
-        print("result!!!!!!,,",result_list)
-        print("qweqweqweqwe",max(result_list))
+        print("result!!!!!!,,", result_list)
+        print("qweqweqweqwe", max(result_list))
         return answers[index_list[result_list.index(max(result_list))]]
-def just_test():
-    file=open("test.txt","rb")
-    return_value = file.read()
-    print(return_value)
-    print('qeqweqweqweqweqwewqeqweqw')
-    file.close()
-    return return_value
+
 
 @csrf_exempt
 def problem_solving(request):
