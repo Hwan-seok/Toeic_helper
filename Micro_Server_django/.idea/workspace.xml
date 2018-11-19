@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ee80927-0097-4bb0-ab89-9b1e3aee0856" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../django_study/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../django_study/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Micro/response/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Micro/response/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +17,7 @@
     <session id="1951298216">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="2" />
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Micro/response/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="314" column="47" lean-forward="true" selection-start-line="314" selection-start-column="47" selection-end-line="314" selection-end-column="47" />
+            <state relative-caret-position="434">
+              <caret line="322" column="12" lean-forward="true" selection-start-line="322" selection-start-column="12" selection-end-line="322" selection-end-column="12" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -103,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/Micro/manage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <caret line="251" selection-start-line="251" selection-end-line="251" />
               <folding>
                 <element signature="e#22#31#0" expanded="true" />
               </folding>
@@ -185,7 +183,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="width" value="978" />
     <option name="height" value="1039" />
@@ -284,8 +282,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14697987" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -403,7 +400,7 @@
     <entry file="file://$PROJECT_DIR$/Micro/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <caret line="251" selection-start-line="251" selection-end-line="251" />
           <folding>
             <element signature="e#22#31#0" expanded="true" />
           </folding>
@@ -442,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Micro/response/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="314" column="47" lean-forward="true" selection-start-line="314" selection-start-column="47" selection-end-line="314" selection-end-column="47" />
+        <state relative-caret-position="434">
+          <caret line="322" column="12" lean-forward="true" selection-start-line="322" selection-start-column="12" selection-end-line="322" selection-end-column="12" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
